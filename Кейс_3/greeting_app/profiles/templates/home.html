@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Приветствие</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; text-align: center; }
+        form { margin-top: 50px; }
+        input[type="text"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        input[type="submit"] { padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        input[type="submit"]:hover { background: #45a049; }
+        .greeting { margin-top: 20px; font-size: 20px; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Введите своё имя</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    {% if greeting %}
+        <div class="greeting">{{ greeting }}</div>
+    {% endif %}
+</body>
+</html>
